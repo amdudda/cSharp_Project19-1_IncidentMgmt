@@ -3037,7 +3037,7 @@ SELECT CustomerID, Name, Address, City, State, ZipCode, Phone, Email FROM Custom
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        CustomerID, Name, Address, City, State, ZipCode, Phone, Email\r\nFROM" +
-                "            Customers\r\nWHERE        (State = @State)";
+                "            Customers\r\nWHERE        (State LIKE @State + \'%\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.VarChar, 2, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
