@@ -20,15 +20,9 @@ namespace Proj19_1_Dudda
 
         private void frm_CustomerIncidents_Load(object sender, EventArgs e)
         {
-            /*  Don't actually load any data when the form loads...   
-            // TODO: This line of code loads data into the 'techSupport_DataDataSet.Incidents' table. You can move, or remove it, as needed.
-            this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
-            // TODO: This line of code loads data into the 'techSupport_DataDataSet.Customers' table. You can move, or remove it, as needed.
-            this.customersTableAdapter.Fill(this.techSupport_DataDataSet.Customers);
-            */
             // set focus on cutomer ID field to prompt user to search
             // TODO - not focusing!
-            this.txtCustomerIdSearch.Focus();
+            txtCustomerIdSearch.Focus();
         }
 
         private void fillByCustomerIDToolStripButton_Click(object sender, EventArgs e)
@@ -101,7 +95,7 @@ namespace Proj19_1_Dudda
             Control mySearchBox = txtCustomerIdSearch.Control;
             //MessageBox.Show(mySearchBox.Text); //.ToString());
             // if input IS present and IS NOT a postive integer, get cranky.
-            if (!(Validator.IsPositiveInteger(mySearchBox, "Customer ID")))
+            if (mySearchBox.Text != "" && !(Validator.IsPositiveInteger(mySearchBox, "Customer ID")))
             {
                 mySearchBox.Focus();
             }
