@@ -22,10 +22,22 @@ namespace Proj19_1_Dudda
 
         private void customersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.customersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.techSupport_DataDataSet);
-
+            try
+            {
+                this.Validate();
+                this.customersBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.techSupport_DataDataSet);
+            }
+            catch (SqlException sqle)
+            {
+                string msg = sqle.Message;
+                string caption = sqle.GetType().ToString();
+                MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
         private void frmFindCustomer_Load(object sender, EventArgs e)

@@ -28,14 +28,14 @@ namespace Proj19_1_Dudda
             */
             // set focus on cutomer ID field to prompt user to search
             // TODO - not focusing!
-            this.customerIDToolStripTextBox.Focus();
+            this.txtCustomerIdSearch.Focus();
         }
 
         private void fillByCustomerIDToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                int custId = Convert.ToInt32(customerIDToolStripTextBox.Text);
+                int custId = Convert.ToInt32(txtCustomerIdSearch.Text);
                 this.customersTableAdapter.FillByCustomerID(this.techSupport_DataDataSet.Customers,
                     custId); 
                 this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
@@ -43,7 +43,7 @@ namespace Proj19_1_Dudda
                 {
                     MessageBox.Show("No customers with that ID found.  Please try another number.",
                         "ID not found");
-                    customerIDToolStripTextBox.Focus();
+                    txtCustomerIdSearch.Focus();
                 }
             }
             catch (SqlException sqle)
@@ -68,7 +68,7 @@ namespace Proj19_1_Dudda
             if (custByState != -1)
             {
                 // update the search box display
-                customerIDToolStripTextBox.Text = custByState.ToString();
+                txtCustomerIdSearch.Text = custByState.ToString();
                 // now display only the selected customer
                 try
                 {
@@ -80,7 +80,7 @@ namespace Proj19_1_Dudda
                     {
                         MessageBox.Show("No customers with that ID found.  Please try another number.",
                             "ID not found");
-                        customerIDToolStripTextBox.Focus();
+                        txtCustomerIdSearch.Focus();
                     }
                 }
                 catch (SqlException sqle)
@@ -95,5 +95,17 @@ namespace Proj19_1_Dudda
                 }
             }
         }
+
+        private void txtCustomerIdSearch_Leave(object sender, EventArgs e)
+        {
+            Control mySearchBox = txtCustomerIdSearch.Control;
+            //MessageBox.Show(mySearchBox.Text); //.ToString());
+            // if input IS present and IS NOT a postive integer, get cranky.
+            if (!(Validator.IsPositiveInteger(mySearchBox, "Customer ID")))
+            {
+                mySearchBox.Focus();
+            }
+        }
+
     }
 }

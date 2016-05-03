@@ -51,11 +51,6 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.incidentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.fillByCustomerIDToolStrip = new System.Windows.Forms.ToolStrip();
-            this.customerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.customerIDToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.fillByCustomerIDToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.findByStateToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +60,11 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incidentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.fillByCustomerIDToolStrip = new System.Windows.Forms.ToolStrip();
+            this.customerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.txtCustomerIdSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.fillByCustomerIDToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.findByStateToolStripButton = new System.Windows.Forms.ToolStripButton();
             customerIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -74,8 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.techSupport_DataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsDataGridView)).BeginInit();
-            this.fillByCustomerIDToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).BeginInit();
+            this.fillByCustomerIDToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // customerIDLabel
@@ -257,14 +257,89 @@
             this.incidentsDataGridView.DataSource = this.incidentsBindingSource1;
             this.incidentsDataGridView.Location = new System.Drawing.Point(27, 221);
             this.incidentsDataGridView.Name = "incidentsDataGridView";
+            this.incidentsDataGridView.ReadOnly = true;
             this.incidentsDataGridView.Size = new System.Drawing.Size(528, 140);
             this.incidentsDataGridView.TabIndex = 17;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "IncidentID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "IncidentID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProductCode";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Product Code";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TechID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "TechID";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "DateOpened";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Date Opened";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 96;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "DateClosed";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Date Closed";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 200;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // incidentsBindingSource1
+            // 
+            this.incidentsBindingSource1.DataMember = "FK_Incidents_Customers";
+            this.incidentsBindingSource1.DataSource = this.customersBindingSource;
             // 
             // fillByCustomerIDToolStrip
             // 
             this.fillByCustomerIDToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerIDToolStripLabel,
-            this.customerIDToolStripTextBox,
+            this.txtCustomerIdSearch,
             this.fillByCustomerIDToolStripButton,
             this.findByStateToolStripButton});
             this.fillByCustomerIDToolStrip.Location = new System.Drawing.Point(0, 0);
@@ -279,10 +354,11 @@
             this.customerIDToolStripLabel.Size = new System.Drawing.Size(73, 22);
             this.customerIDToolStripLabel.Text = "CustomerID:";
             // 
-            // customerIDToolStripTextBox
+            // txtCustomerIdSearch
             // 
-            this.customerIDToolStripTextBox.Name = "customerIDToolStripTextBox";
-            this.customerIDToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.txtCustomerIdSearch.Name = "txtCustomerIdSearch";
+            this.txtCustomerIdSearch.Size = new System.Drawing.Size(100, 25);
+            this.txtCustomerIdSearch.Leave += new System.EventHandler(this.txtCustomerIdSearch_Leave);
             // 
             // fillByCustomerIDToolStripButton
             // 
@@ -301,73 +377,6 @@
             this.findByStateToolStripButton.Size = new System.Drawing.Size(79, 22);
             this.findByStateToolStripButton.Text = "Find By State";
             this.findByStateToolStripButton.Click += new System.EventHandler(this.findByStateToolStripButton_Click);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "IncidentID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "IncidentID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ProductCode";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Product Code";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 97;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "TechID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "TechID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "DateOpened";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Date Opened";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 96;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "DateClosed";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Date Closed";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 200;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Visible = false;
-            // 
-            // incidentsBindingSource1
-            // 
-            this.incidentsBindingSource1.DataMember = "FK_Incidents_Customers";
-            this.incidentsBindingSource1.DataSource = this.customersBindingSource;
             // 
             // frm_CustomerIncidents
             // 
@@ -397,9 +406,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.techSupport_DataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).EndInit();
             this.fillByCustomerIDToolStrip.ResumeLayout(false);
             this.fillByCustomerIDToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +442,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.ToolStrip fillByCustomerIDToolStrip;
         private System.Windows.Forms.ToolStripLabel customerIDToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox customerIDToolStripTextBox;
+        private System.Windows.Forms.ToolStripTextBox txtCustomerIdSearch;
         private System.Windows.Forms.ToolStripButton fillByCustomerIDToolStripButton;
         private System.Windows.Forms.ToolStripButton findByStateToolStripButton;
     }

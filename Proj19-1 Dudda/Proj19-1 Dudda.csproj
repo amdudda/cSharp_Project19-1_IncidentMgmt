@@ -63,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TechSupport_DataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Validator.cs" />
     <EmbeddedResource Include="frmCustomerIncidents.resx">
       <DependentUpon>frmCustomerIncidents.cs</DependentUpon>
     </EmbeddedResource>
