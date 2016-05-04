@@ -39,6 +39,7 @@ namespace Proj19_1_Dudda
                         "ID not found");
                     txtCustomerIdSearch.Focus();
                 }
+                txtCustomerIdSearch.Focus();
             }
             catch (SqlException sqle)
             {
@@ -99,6 +100,12 @@ namespace Proj19_1_Dudda
             {
                 mySearchBox.Focus();
             }
+        }
+
+        private void btnAddIncident_Click(object sender, EventArgs e)
+        {
+            frmAddIncident addIncident = new frmAddIncident();
+            addIncident.create(customerIDTextBox.Text, nameTextBox.Text);
         }
 
     }
