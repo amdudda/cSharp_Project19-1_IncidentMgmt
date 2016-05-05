@@ -22,7 +22,7 @@ namespace Proj19_1_Dudda
         {
             // set focus on cutomer ID field to prompt user to search
             // TODO - not focusing!
-            this.txtCustomerIdSearch.Focus();
+            txtCustomerIdSearch.Focus();
         }
 
         private void fillByCustomerIDToolStripButton_Click(object sender, EventArgs e)
@@ -94,8 +94,8 @@ namespace Proj19_1_Dudda
         private void txtCustomerIdSearch_Leave(object sender, EventArgs e)
         {
             Control mySearchBox = txtCustomerIdSearch.Control;
-            //MessageBox.Show(mySearchBox.Text); //.ToString());
             // if input IS present and IS NOT a postive integer, get cranky.
+            // notice I don't use Validator.IsPresent - I'm OK with users leaving this blank if they decide they're not searching for a new customer.
             if (mySearchBox.Text != "" && !(Validator.IsPositiveInteger(mySearchBox, "Customer ID")))
             {
                 mySearchBox.Focus();
@@ -118,6 +118,10 @@ namespace Proj19_1_Dudda
                 // open a form to create a new incident
                 frmAddIncident addIncident = new frmAddIncident();
                 addIncident.create(customerIDTextBox.Text, nameTextBox.Text);
+                // then refresh the dataset
+                //incidentsDataGridView.Refresh();
+                this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
+                    
             }
         }
 
