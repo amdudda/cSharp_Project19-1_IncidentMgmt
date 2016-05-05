@@ -20,10 +20,14 @@ namespace Proj19_1_Dudda
 
         private void frmAddIncident_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'techSupport_DataDataSet.Incidents' table. You can move, or remove it, as needed.
+            this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
             try
             {
                 //  This line of code loads data into the 'techSupport_DataDataSet.Products' table. You can move, or remove it, as needed.
-                this.productsTableAdapter.FillByRegistrationsCustomerID(this.techSupport_DataDataSet.Products, Convert.ToInt32(txtCustomerID.Text));
+                this.productsTableAdapter.Fill(this.techSupport_DataDataSet.Products);
+                // the line below restricts the dropdown to ONLY registered products.  Client 1010 demonstrates we need to create incidents for products where a user cannot register it.
+                // this.productsTableAdapter.FillByRegistrationsCustomerID(this.techSupport_DataDataSet.Products, Convert.ToInt32(txtCustomerID.Text));
             }
             catch (SqlException sqle)
             {
@@ -42,11 +46,19 @@ namespace Proj19_1_Dudda
             this.txtCustomerID.Text = myCustID;
             this.txtCustomerName.Text = myName;
             this.ShowDialog();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            string msg = this.txtCustomerID.Text + ", " + this.txtCustomerName.Text + ", " +
+                cboProductCode.ValueMember.ToString() + ", " + txtTitle.Text + ", " + txtDescription.Text;
+            MessageBox.Show(msg);
         }
 
     }

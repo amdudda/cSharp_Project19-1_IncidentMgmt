@@ -22,7 +22,7 @@ namespace Proj19_1_Dudda
         {
             // set focus on cutomer ID field to prompt user to search
             // TODO - not focusing!
-            txtCustomerIdSearch.Focus();
+            this.txtCustomerIdSearch.Focus();
         }
 
         private void fillByCustomerIDToolStripButton_Click(object sender, EventArgs e)
@@ -104,8 +104,21 @@ namespace Proj19_1_Dudda
 
         private void btnAddIncident_Click(object sender, EventArgs e)
         {
-            frmAddIncident addIncident = new frmAddIncident();
-            addIncident.create(customerIDTextBox.Text, nameTextBox.Text);
+            if (customerIDTextBox.Text == "")
+            {
+                // tell users they need to pick a customer to work with
+                string msg = "Please select a customer to work with.  You can find them by their " +
+                    "Customer ID, or browse for them by state.";
+                string caption = "No Customer Selected";
+                MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtCustomerIdSearch.Focus();
+            }
+            else
+            {
+                // open a form to create a new incident
+                frmAddIncident addIncident = new frmAddIncident();
+                addIncident.create(customerIDTextBox.Text, nameTextBox.Text);
+            }
         }
 
     }
