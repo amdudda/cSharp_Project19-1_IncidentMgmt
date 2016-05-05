@@ -35,17 +35,21 @@
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.cboProductCode = new System.Windows.Forms.ComboBox();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.techSupport_DataDataSet = new Proj19_1_Dudda.TechSupport_DataDataSet();
             this.label6 = new System.Windows.Forms.Label();
             this.productsTableAdapter = new Proj19_1_Dudda.TechSupport_DataDataSetTableAdapters.ProductsTableAdapter();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.incidentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.incidentsTableAdapter = new Proj19_1_Dudda.TechSupport_DataDataSetTableAdapters.IncidentsTableAdapter();
+            this.btnOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techSupport_DataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -100,12 +104,12 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Description:";
             // 
-            // textBox2
+            // txtTitle
             // 
-            this.textBox2.Location = new System.Drawing.Point(89, 157);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 20);
-            this.textBox2.TabIndex = 24;
+            this.txtTitle.Location = new System.Drawing.Point(89, 157);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(183, 20);
+            this.txtTitle.TabIndex = 24;
             // 
             // label5
             // 
@@ -116,25 +120,25 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "Title:";
             // 
-            // textBox1
+            // txtDescription
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 184);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 66);
-            this.textBox1.TabIndex = 26;
+            this.txtDescription.Location = new System.Drawing.Point(89, 184);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(183, 66);
+            this.txtDescription.TabIndex = 26;
             // 
-            // comboBox1
+            // cboProductCode
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productsBindingSource, "ProductCode", true));
-            this.comboBox1.DataSource = this.productsBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(89, 92);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 21);
-            this.comboBox1.TabIndex = 27;
-            this.comboBox1.ValueMember = "ProductCode";
+            this.cboProductCode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.incidentsBindingSource, "ProductCode", true));
+            this.cboProductCode.DataSource = this.productsBindingSource;
+            this.cboProductCode.DisplayMember = "Name";
+            this.cboProductCode.FormattingEnabled = true;
+            this.cboProductCode.Location = new System.Drawing.Point(89, 92);
+            this.cboProductCode.Name = "cboProductCode";
+            this.cboProductCode.Size = new System.Drawing.Size(183, 21);
+            this.cboProductCode.TabIndex = 27;
+            this.cboProductCode.ValueMember = "ProductCode";
             // 
             // productsBindingSource
             // 
@@ -169,17 +173,37 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // incidentsBindingSource
+            // 
+            this.incidentsBindingSource.DataMember = "Incidents";
+            this.incidentsBindingSource.DataSource = this.techSupport_DataDataSet;
+            // 
+            // incidentsTableAdapter
+            // 
+            this.incidentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(107, 257);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 30;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // frmAddIncident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 312);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cboProductCode);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.label3);
@@ -191,6 +215,7 @@
             this.Load += new System.EventHandler(this.frmAddIncident_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.techSupport_DataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,14 +229,17 @@
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.ComboBox cboProductCode;
         private System.Windows.Forms.Label label6;
         private TechSupport_DataDataSet techSupport_DataDataSet;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private TechSupport_DataDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource incidentsBindingSource;
+        private TechSupport_DataDataSetTableAdapters.IncidentsTableAdapter incidentsTableAdapter;
+        private System.Windows.Forms.Button btnOK;
     }
 }
