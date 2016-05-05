@@ -119,9 +119,27 @@ namespace Proj19_1_Dudda
                 frmAddIncident addIncident = new frmAddIncident();
                 addIncident.create(customerIDTextBox.Text, nameTextBox.Text);
                 // then refresh the dataset
-                //incidentsDataGridView.Refresh();
-                this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
+                FillIncidents();
                     
+            }
+        }
+
+        private void FillIncidents()
+        {
+            try
+            {
+                this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
+                
+            }
+            catch (SqlException sqle)
+            {
+                string msg = "Database error # " + sqle.Number + ":\n" + sqle.Message;
+                string caption = sqle.GetType().ToString();
+                MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
 
