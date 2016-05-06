@@ -51,11 +51,6 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.incidentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.fillByCustomerIDToolStrip = new System.Windows.Forms.ToolStrip();
-            this.customerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.txtCustomerIdSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.fillByCustomerIDToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.findByStateToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +60,13 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incidentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.fillByCustomerIDToolStrip = new System.Windows.Forms.ToolStrip();
+            this.customerIDToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.txtCustomerIdSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.fillByCustomerIDToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.findByStateToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.btnAddIncident = new System.Windows.Forms.Button();
+            this.btnAddEditCustomer = new System.Windows.Forms.Button();
             customerIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -75,8 +76,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.techSupport_DataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsDataGridView)).BeginInit();
-            this.fillByCustomerIDToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).BeginInit();
+            this.fillByCustomerIDToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // customerIDLabel
@@ -169,6 +170,7 @@
             this.customerIDTextBox.ReadOnly = true;
             this.customerIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerIDTextBox.TabIndex = 3;
+            this.customerIDTextBox.TabStop = false;
             // 
             // nameTextBox
             // 
@@ -178,6 +180,7 @@
             this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(233, 20);
             this.nameTextBox.TabIndex = 5;
+            this.nameTextBox.TabStop = false;
             // 
             // addressTextBox
             // 
@@ -187,6 +190,7 @@
             this.addressTextBox.ReadOnly = true;
             this.addressTextBox.Size = new System.Drawing.Size(233, 20);
             this.addressTextBox.TabIndex = 7;
+            this.addressTextBox.TabStop = false;
             // 
             // cityTextBox
             // 
@@ -196,6 +200,7 @@
             this.cityTextBox.ReadOnly = true;
             this.cityTextBox.Size = new System.Drawing.Size(100, 20);
             this.cityTextBox.TabIndex = 9;
+            this.cityTextBox.TabStop = false;
             // 
             // stateTextBox
             // 
@@ -205,6 +210,7 @@
             this.stateTextBox.ReadOnly = true;
             this.stateTextBox.Size = new System.Drawing.Size(28, 20);
             this.stateTextBox.TabIndex = 10;
+            this.stateTextBox.TabStop = false;
             // 
             // zipCodeTextBox
             // 
@@ -214,6 +220,7 @@
             this.zipCodeTextBox.ReadOnly = true;
             this.zipCodeTextBox.Size = new System.Drawing.Size(93, 20);
             this.zipCodeTextBox.TabIndex = 11;
+            this.zipCodeTextBox.TabStop = false;
             // 
             // phoneTextBox
             // 
@@ -223,6 +230,7 @@
             this.phoneTextBox.ReadOnly = true;
             this.phoneTextBox.Size = new System.Drawing.Size(100, 20);
             this.phoneTextBox.TabIndex = 13;
+            this.phoneTextBox.TabStop = false;
             // 
             // emailTextBox
             // 
@@ -232,6 +240,7 @@
             this.emailTextBox.ReadOnly = true;
             this.emailTextBox.Size = new System.Drawing.Size(233, 20);
             this.emailTextBox.TabIndex = 15;
+            this.emailTextBox.TabStop = false;
             // 
             // label1
             // 
@@ -261,49 +270,7 @@
             this.incidentsDataGridView.ReadOnly = true;
             this.incidentsDataGridView.Size = new System.Drawing.Size(528, 140);
             this.incidentsDataGridView.TabIndex = 16;
-            // 
-            // fillByCustomerIDToolStrip
-            // 
-            this.fillByCustomerIDToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customerIDToolStripLabel,
-            this.txtCustomerIdSearch,
-            this.fillByCustomerIDToolStripButton,
-            this.findByStateToolStripButton});
-            this.fillByCustomerIDToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.fillByCustomerIDToolStrip.Name = "fillByCustomerIDToolStrip";
-            this.fillByCustomerIDToolStrip.Size = new System.Drawing.Size(588, 25);
-            this.fillByCustomerIDToolStrip.TabIndex = 1;
-            this.fillByCustomerIDToolStrip.Text = "fillByCustomerIDToolStrip";
-            // 
-            // customerIDToolStripLabel
-            // 
-            this.customerIDToolStripLabel.Name = "customerIDToolStripLabel";
-            this.customerIDToolStripLabel.Size = new System.Drawing.Size(73, 22);
-            this.customerIDToolStripLabel.Text = "CustomerID:";
-            // 
-            // txtCustomerIdSearch
-            // 
-            this.txtCustomerIdSearch.Name = "txtCustomerIdSearch";
-            this.txtCustomerIdSearch.Size = new System.Drawing.Size(100, 25);
-            this.txtCustomerIdSearch.Leave += new System.EventHandler(this.txtCustomerIdSearch_Leave);
-            // 
-            // fillByCustomerIDToolStripButton
-            // 
-            this.fillByCustomerIDToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByCustomerIDToolStripButton.Name = "fillByCustomerIDToolStripButton";
-            this.fillByCustomerIDToolStripButton.Size = new System.Drawing.Size(34, 22);
-            this.fillByCustomerIDToolStripButton.Text = "Find";
-            this.fillByCustomerIDToolStripButton.Click += new System.EventHandler(this.fillByCustomerIDToolStripButton_Click);
-            // 
-            // findByStateToolStripButton
-            // 
-            this.findByStateToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.findByStateToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("findByStateToolStripButton.Image")));
-            this.findByStateToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.findByStateToolStripButton.Name = "findByStateToolStripButton";
-            this.findByStateToolStripButton.Size = new System.Drawing.Size(79, 22);
-            this.findByStateToolStripButton.Text = "Find By State";
-            this.findByStateToolStripButton.Click += new System.EventHandler(this.findByStateToolStripButton_Click);
+            this.incidentsDataGridView.TabStop = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -379,21 +346,75 @@
             this.incidentsBindingSource1.DataMember = "FK_Incidents_Customers";
             this.incidentsBindingSource1.DataSource = this.customersBindingSource;
             // 
+            // fillByCustomerIDToolStrip
+            // 
+            this.fillByCustomerIDToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customerIDToolStripLabel,
+            this.txtCustomerIdSearch,
+            this.fillByCustomerIDToolStripButton,
+            this.findByStateToolStripButton});
+            this.fillByCustomerIDToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillByCustomerIDToolStrip.Name = "fillByCustomerIDToolStrip";
+            this.fillByCustomerIDToolStrip.Size = new System.Drawing.Size(588, 25);
+            this.fillByCustomerIDToolStrip.TabIndex = 1;
+            this.fillByCustomerIDToolStrip.Text = "fillByCustomerIDToolStrip";
+            // 
+            // customerIDToolStripLabel
+            // 
+            this.customerIDToolStripLabel.Name = "customerIDToolStripLabel";
+            this.customerIDToolStripLabel.Size = new System.Drawing.Size(73, 22);
+            this.customerIDToolStripLabel.Text = "&CustomerID:";
+            // 
+            // txtCustomerIdSearch
+            // 
+            this.txtCustomerIdSearch.Name = "txtCustomerIdSearch";
+            this.txtCustomerIdSearch.Size = new System.Drawing.Size(100, 25);
+            this.txtCustomerIdSearch.Leave += new System.EventHandler(this.txtCustomerIdSearch_Leave);
+            // 
+            // fillByCustomerIDToolStripButton
+            // 
+            this.fillByCustomerIDToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByCustomerIDToolStripButton.Name = "fillByCustomerIDToolStripButton";
+            this.fillByCustomerIDToolStripButton.Size = new System.Drawing.Size(34, 22);
+            this.fillByCustomerIDToolStripButton.Text = "Find";
+            this.fillByCustomerIDToolStripButton.Click += new System.EventHandler(this.fillByCustomerIDToolStripButton_Click);
+            // 
+            // findByStateToolStripButton
+            // 
+            this.findByStateToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.findByStateToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("findByStateToolStripButton.Image")));
+            this.findByStateToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.findByStateToolStripButton.Name = "findByStateToolStripButton";
+            this.findByStateToolStripButton.Size = new System.Drawing.Size(79, 22);
+            this.findByStateToolStripButton.Text = "Find By State";
+            this.findByStateToolStripButton.Click += new System.EventHandler(this.findByStateToolStripButton_Click);
+            // 
             // btnAddIncident
             // 
             this.btnAddIncident.Location = new System.Drawing.Point(420, 183);
             this.btnAddIncident.Name = "btnAddIncident";
             this.btnAddIncident.Size = new System.Drawing.Size(135, 23);
             this.btnAddIncident.TabIndex = 18;
-            this.btnAddIncident.Text = "Add Incident";
+            this.btnAddIncident.Text = "&Add Incident";
             this.btnAddIncident.UseVisualStyleBackColor = true;
             this.btnAddIncident.Click += new System.EventHandler(this.btnAddIncident_Click);
+            // 
+            // btnAddEditCustomer
+            // 
+            this.btnAddEditCustomer.Location = new System.Drawing.Point(420, 157);
+            this.btnAddEditCustomer.Name = "btnAddEditCustomer";
+            this.btnAddEditCustomer.Size = new System.Drawing.Size(135, 23);
+            this.btnAddEditCustomer.TabIndex = 19;
+            this.btnAddEditCustomer.Text = "Add New Customer";
+            this.btnAddEditCustomer.UseVisualStyleBackColor = true;
+            this.btnAddEditCustomer.Click += new System.EventHandler(this.btnAddEditCustomer_Click);
             // 
             // frm_CustomerIncidents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 376);
+            this.Controls.Add(this.btnAddEditCustomer);
             this.Controls.Add(this.btnAddIncident);
             this.Controls.Add(this.fillByCustomerIDToolStrip);
             this.Controls.Add(this.incidentsDataGridView);
@@ -418,9 +439,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.techSupport_DataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidentsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).EndInit();
             this.fillByCustomerIDToolStrip.ResumeLayout(false);
             this.fillByCustomerIDToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.incidentsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,6 +479,7 @@
         private System.Windows.Forms.ToolStripButton fillByCustomerIDToolStripButton;
         private System.Windows.Forms.ToolStripButton findByStateToolStripButton;
         private System.Windows.Forms.Button btnAddIncident;
+        private System.Windows.Forms.Button btnAddEditCustomer;
     }
 }
 
