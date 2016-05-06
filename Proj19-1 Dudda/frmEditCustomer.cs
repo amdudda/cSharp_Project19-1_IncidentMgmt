@@ -83,16 +83,6 @@ namespace Proj19_1_Dudda
             this.ShowDialog();
         }
 
-        private void nameTextBox_Leave(object sender, EventArgs e)
-        {
-            TextBox myBox = (TextBox)sender;
-            string myName = myBox.Tag.ToString();
-            if (!(Validator.IsPresent(myBox, myName)))
-            {
-                myBox.Focus();
-            }
-        }
-
         private void btnSaveExit_Click(object sender, EventArgs e)
         {
             customersBindingNavigatorSaveItem_Click(sender, e);
@@ -117,8 +107,26 @@ namespace Proj19_1_Dudda
                 Validator.IsPresent(addressTextBox,addressTextBox.Tag.ToString()) &&
                 Validator.IsPresent(cityTextBox,cityTextBox.Tag.ToString()) &&
                 Validator.IsPresent(stateTextBox,stateTextBox.Tag.ToString()) &&
-                Validator.IsPresent(zipCodeTextBox,zipCodeTextBox.Tag.ToString());
+                Validator.IsPresent(zipCodeTextBox,zipCodeTextBox.Tag.ToString()) &&
+                Validator.IsEmail(emailTextBox,emailTextBox.Tag.ToString());
             return isvalid;
+        }
+
+        private void nameTextBox_Leave(object sender, EventArgs e)
+        {
+            // validates required fields to ensure they contain data
+            TextBox myBox = (TextBox)sender;
+            string myName = myBox.Tag.ToString();
+            if (!(Validator.IsPresent(myBox, myName)))
+            {
+                myBox.Focus();
+            }
+        }
+
+        private void emailTextBox_Leave(object sender, EventArgs e)
+        {
+            // validate the field if the user tries to tab away.
+            Validator.IsEmail(emailTextBox, emailTextBox.Tag.ToString());
         }
     }
 }

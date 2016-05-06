@@ -356,6 +356,8 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(220, 20);
             this.emailTextBox.TabIndex = 16;
+            this.emailTextBox.Tag = "Email";
+            this.emailTextBox.Leave += new System.EventHandler(this.emailTextBox_Leave);
             // 
             // btnSaveExit
             // 
