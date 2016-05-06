@@ -61,6 +61,8 @@
             this.zipCodeTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.btnSaveExit = new System.Windows.Forms.Button();
+            this.btnExitAbandonChanges = new System.Windows.Forms.Button();
             customerIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -281,8 +283,9 @@
             this.customerIDTextBox.Location = new System.Drawing.Point(95, 46);
             this.customerIDTextBox.Name = "customerIDTextBox";
             this.customerIDTextBox.ReadOnly = true;
-            this.customerIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.customerIDTextBox.Size = new System.Drawing.Size(73, 20);
             this.customerIDTextBox.TabIndex = 2;
+            this.customerIDTextBox.TabStop = false;
             // 
             // nameTextBox
             // 
@@ -291,6 +294,8 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(220, 20);
             this.nameTextBox.TabIndex = 4;
+            this.nameTextBox.Tag = "Name";
+            this.nameTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // addressTextBox
             // 
@@ -300,30 +305,41 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(220, 49);
             this.addressTextBox.TabIndex = 6;
+            this.addressTextBox.Tag = "Address";
+            this.addressTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // cityTextBox
             // 
             this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "City", true));
             this.cityTextBox.Location = new System.Drawing.Point(95, 153);
+            this.cityTextBox.MaxLength = 20;
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(129, 20);
             this.cityTextBox.TabIndex = 8;
+            this.cityTextBox.Tag = "City";
+            this.cityTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // stateTextBox
             // 
             this.stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "State", true));
             this.stateTextBox.Location = new System.Drawing.Point(230, 153);
+            this.stateTextBox.MaxLength = 2;
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(27, 20);
             this.stateTextBox.TabIndex = 10;
+            this.stateTextBox.Tag = "State";
+            this.stateTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // zipCodeTextBox
             // 
             this.zipCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "ZipCode", true));
             this.zipCodeTextBox.Location = new System.Drawing.Point(263, 153);
+            this.zipCodeTextBox.MaxLength = 5;
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(52, 20);
             this.zipCodeTextBox.TabIndex = 12;
+            this.zipCodeTextBox.Tag = "ZIP Code";
+            this.zipCodeTextBox.Leave += new System.EventHandler(this.nameTextBox_Leave);
             // 
             // phoneTextBox
             // 
@@ -341,11 +357,33 @@
             this.emailTextBox.Size = new System.Drawing.Size(220, 20);
             this.emailTextBox.TabIndex = 16;
             // 
+            // btnSaveExit
+            // 
+            this.btnSaveExit.Location = new System.Drawing.Point(95, 232);
+            this.btnSaveExit.Name = "btnSaveExit";
+            this.btnSaveExit.Size = new System.Drawing.Size(75, 38);
+            this.btnSaveExit.TabIndex = 17;
+            this.btnSaveExit.Text = "Save and Exit";
+            this.btnSaveExit.UseVisualStyleBackColor = true;
+            this.btnSaveExit.Click += new System.EventHandler(this.btnSaveExit_Click);
+            // 
+            // btnExitAbandonChanges
+            // 
+            this.btnExitAbandonChanges.Location = new System.Drawing.Point(239, 232);
+            this.btnExitAbandonChanges.Name = "btnExitAbandonChanges";
+            this.btnExitAbandonChanges.Size = new System.Drawing.Size(75, 38);
+            this.btnExitAbandonChanges.TabIndex = 18;
+            this.btnExitAbandonChanges.Text = "Exit without Saving";
+            this.btnExitAbandonChanges.UseVisualStyleBackColor = true;
+            this.btnExitAbandonChanges.Click += new System.EventHandler(this.btnExitAbandonChanges_Click);
+            // 
             // frmEditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 247);
+            this.ClientSize = new System.Drawing.Size(337, 293);
+            this.Controls.Add(this.btnExitAbandonChanges);
+            this.Controls.Add(this.btnSaveExit);
             this.Controls.Add(customerIDLabel);
             this.Controls.Add(this.customerIDTextBox);
             this.Controls.Add(nameLabel);
@@ -362,7 +400,7 @@
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.customersBindingNavigator);
             this.Name = "frmEditCustomer";
-            this.Text = "frmEditCustomer";
+            this.Text = "Edit Customer";
             this.Load += new System.EventHandler(this.frmEditCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.techSupport_DataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
@@ -401,5 +439,7 @@
         private System.Windows.Forms.TextBox zipCodeTextBox;
         private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.Button btnSaveExit;
+        private System.Windows.Forms.Button btnExitAbandonChanges;
     }
 }

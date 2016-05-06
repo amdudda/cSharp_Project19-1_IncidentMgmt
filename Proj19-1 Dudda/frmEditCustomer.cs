@@ -20,18 +20,50 @@ namespace Proj19_1_Dudda
 
         private void customersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.customersBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.techSupport_DataDataSet);
-
+            // only try update if the required fields have data in them
+            if (IsValidData())
+            {
+                // error trapping
+                try
+                {
+                    this.Validate();
+                    this.customersBindingSource.EndEdit();
+                    this.tableAdapterManager.UpdateAll(this.techSupport_DataDataSet);
+                }
+                catch (DBConcurrencyException)
+                {
+                    // alert user to error
+                    string msg = "A concurrency error occurred.  Some records were not saved.";
+                    string caption = "Concurrency Error";
+                    MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // then fetch fresh data
+                    this.customersTableAdapter.Fill(this.techSupport_DataDataSet.Customers);
+                }
+                catch (DataException de)
+                {
+                    // alert user to error
+                    string msg = "A data exception error occurred:\n\n" + de.Message;
+                    string caption = de.GetType().ToString();
+                    MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // then cancel the edit(s) and let the user try again.
+                    this.customersBindingSource.CancelEdit();
+                }
+                catch (Exception ex)
+                {
+                    string msg = "An unexpected error occurred:\n" + ex.Message;
+                    string caption = ex.GetType().ToString();
+                    MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void frmEditCustomer_Load(object sender, EventArgs e)
         {
             try 
             {
-            // This line of code loads data into the 'techSupport_DataDataSet.Customers' table. You can move, or remove it, as needed.
-            this.customersTableAdapter.Fill(this.techSupport_DataDataSet.Customers);
+                // fill the dataset and then move to a new record.
+                this.customersTableAdapter.Fill(this.techSupport_DataDataSet.Customers);
+                customersBindingSource.AddNew();
             }
             catch (SqlException sqle)
             {
@@ -47,21 +79,46 @@ namespace Proj19_1_Dudda
 
         public void AddCustomer()
         {
-            // loads form and moves to new record
+            // loads form 
             this.ShowDialog();
-            customersBindingSource.AddNew();
-            
-            //customersBindingSource.MoveLast();
-            //customersBindingSource.MoveNext();
-            
-            /*
-            TechSupport_DataDataSet.CustomersRow newrow;
-            newrow = techSupport_DataDataSet.Customers.NewCustomersRow();
-            customersBindingSource.Add(newrow);
-            customersTableAdapter.Update(techSupport_DataDataSet.Customers);
-            customersBindingSource.MoveLast();
-             * */
-            
+        }
+
+        private void nameTextBox_Leave(object sender, EventArgs e)
+        {
+            TextBox myBox = (TextBox)sender;
+            string myName = myBox.Tag.ToString();
+            if (!(Validator.IsPresent(myBox, myName)))
+            {
+                myBox.Focus();
+            }
+        }
+
+        private void btnSaveExit_Click(object sender, EventArgs e)
+        {
+            customersBindingNavigatorSaveItem_Click(sender, e);
+            this.Close();
+        }
+
+        private void btnExitAbandonChanges_Click(object sender, EventArgs e)
+        {
+            DialogResult okToLeave = MessageBox.Show("This will undo all unsaved changes to records.\nOK to proceed?", "Changes will not be saved!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (okToLeave == DialogResult.Yes)
+            {
+                // if they say yes, abandom changes and exit.
+                customersBindingSource.CancelEdit();
+                this.Close();
+            } // otherwise, do nothing, code sends user back to data entry form.
+        }
+
+        private bool IsValidData()
+        {
+            // checks that all required fields have been filled in
+            bool isvalid = Validator.IsPresent(nameTextBox,nameTextBox.Tag.ToString()) &&
+                Validator.IsPresent(addressTextBox,addressTextBox.Tag.ToString()) &&
+                Validator.IsPresent(cityTextBox,cityTextBox.Tag.ToString()) &&
+                Validator.IsPresent(stateTextBox,stateTextBox.Tag.ToString()) &&
+                Validator.IsPresent(zipCodeTextBox,zipCodeTextBox.Tag.ToString());
+            return isvalid;
         }
     }
 }
