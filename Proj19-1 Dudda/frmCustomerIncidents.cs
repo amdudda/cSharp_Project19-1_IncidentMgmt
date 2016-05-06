@@ -143,5 +143,11 @@ namespace Proj19_1_Dudda
             }
         }
 
+        private void btnAddEditCustomer_Click(object sender, EventArgs e)
+        {
+            frmEditCustomer addNewCust = new frmEditCustomer();
+            addNewCust.AddCustomer();
+        }
+
     }
 }

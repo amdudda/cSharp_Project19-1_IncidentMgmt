@@ -50,6 +50,12 @@
     <Compile Include="frmCustomerIncidents.Designer.cs">
       <DependentUpon>frmCustomerIncidents.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditCustomer.Designer.cs">
+      <DependentUpon>frmEditCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFindCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Validator.cs" />
     <EmbeddedResource Include="frmCustomerIncidents.resx">
       <DependentUpon>frmCustomerIncidents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditCustomer.resx">
+      <DependentUpon>frmEditCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFindCustomer.resx">
       <DependentUpon>frmFindCustomer.cs</DependentUpon>
