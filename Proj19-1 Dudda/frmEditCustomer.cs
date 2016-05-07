@@ -138,5 +138,33 @@ namespace Proj19_1_Dudda
         {
             this.customersBindingSource.CancelEdit();
         }
+
+        private void fillByNameToolStripButton_Click(object sender, EventArgs e)
+        {
+            // this method allows a user to find a customer by name
+            DialogResult okToProceed;
+            // TODO determine whether unsaved changes exist and only prompt if such exist.
+            okToProceed = MessageBox.Show("This will delete any unsaved changes to your data!  Do you wish to proceed?", "Unsaved Changes will be Lost", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (okToProceed == DialogResult.Yes)
+            {
+                try
+                {
+                    // abandon changes to the current record
+                    this.customersBindingSource.CancelEdit();
+                    // then find the requested customer
+                    this.customersTableAdapter.FillByName(this.techSupport_DataDataSet.Customers, nameToolStripTextBox.Text);
+                }
+                catch (SqlException sqle)
+                {
+                    string msg = "Database error # " + sqle.Number + ":\n" + sqle.Message;
+                    string caption = sqle.GetType().ToString();
+                    MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

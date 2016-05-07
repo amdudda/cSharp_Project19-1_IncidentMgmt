@@ -64,6 +64,10 @@
             this.btnSaveExit = new System.Windows.Forms.Button();
             this.btnExitAbandonChanges = new System.Windows.Forms.Button();
             this.btnCancelEdit = new System.Windows.Forms.Button();
+            this.fillByNameToolStrip = new System.Windows.Forms.ToolStrip();
+            this.nameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.nameToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.fillByNameToolStripButton = new System.Windows.Forms.ToolStripButton();
             customerIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -74,12 +78,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).BeginInit();
             this.customersBindingNavigator.SuspendLayout();
+            this.fillByNameToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // customerIDLabel
             // 
             customerIDLabel.AutoSize = true;
-            customerIDLabel.Location = new System.Drawing.Point(12, 49);
+            customerIDLabel.Location = new System.Drawing.Point(11, 68);
             customerIDLabel.Name = "customerIDLabel";
             customerIDLabel.Size = new System.Drawing.Size(68, 13);
             customerIDLabel.TabIndex = 1;
@@ -88,7 +93,7 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(12, 75);
+            nameLabel.Location = new System.Drawing.Point(11, 94);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(38, 13);
             nameLabel.TabIndex = 3;
@@ -97,7 +102,7 @@
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(12, 101);
+            addressLabel.Location = new System.Drawing.Point(11, 120);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new System.Drawing.Size(48, 13);
             addressLabel.TabIndex = 5;
@@ -106,7 +111,7 @@
             // cityLabel
             // 
             cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(12, 156);
+            cityLabel.Location = new System.Drawing.Point(11, 175);
             cityLabel.Name = "cityLabel";
             cityLabel.Size = new System.Drawing.Size(81, 13);
             cityLabel.TabIndex = 7;
@@ -115,7 +120,7 @@
             // phoneLabel
             // 
             phoneLabel.AutoSize = true;
-            phoneLabel.Location = new System.Drawing.Point(12, 182);
+            phoneLabel.Location = new System.Drawing.Point(11, 201);
             phoneLabel.Name = "phoneLabel";
             phoneLabel.Size = new System.Drawing.Size(41, 13);
             phoneLabel.TabIndex = 13;
@@ -124,7 +129,7 @@
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(12, 208);
+            emailLabel.Location = new System.Drawing.Point(11, 227);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new System.Drawing.Size(35, 13);
             emailLabel.TabIndex = 15;
@@ -283,7 +288,7 @@
             // customerIDTextBox
             // 
             this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerID", true));
-            this.customerIDTextBox.Location = new System.Drawing.Point(95, 46);
+            this.customerIDTextBox.Location = new System.Drawing.Point(94, 65);
             this.customerIDTextBox.Name = "customerIDTextBox";
             this.customerIDTextBox.ReadOnly = true;
             this.customerIDTextBox.Size = new System.Drawing.Size(73, 20);
@@ -293,7 +298,7 @@
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(95, 72);
+            this.nameTextBox.Location = new System.Drawing.Point(94, 91);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(220, 20);
             this.nameTextBox.TabIndex = 4;
@@ -303,7 +308,7 @@
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(95, 98);
+            this.addressTextBox.Location = new System.Drawing.Point(94, 117);
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(220, 49);
@@ -314,7 +319,7 @@
             // cityTextBox
             // 
             this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "City", true));
-            this.cityTextBox.Location = new System.Drawing.Point(95, 153);
+            this.cityTextBox.Location = new System.Drawing.Point(94, 172);
             this.cityTextBox.MaxLength = 20;
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(129, 20);
@@ -325,7 +330,7 @@
             // stateTextBox
             // 
             this.stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "State", true));
-            this.stateTextBox.Location = new System.Drawing.Point(230, 153);
+            this.stateTextBox.Location = new System.Drawing.Point(229, 172);
             this.stateTextBox.MaxLength = 2;
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(27, 20);
@@ -336,7 +341,7 @@
             // zipCodeTextBox
             // 
             this.zipCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "ZipCode", true));
-            this.zipCodeTextBox.Location = new System.Drawing.Point(263, 153);
+            this.zipCodeTextBox.Location = new System.Drawing.Point(262, 172);
             this.zipCodeTextBox.MaxLength = 5;
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(52, 20);
@@ -347,7 +352,7 @@
             // phoneTextBox
             // 
             this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Phone", true));
-            this.phoneTextBox.Location = new System.Drawing.Point(95, 179);
+            this.phoneTextBox.Location = new System.Drawing.Point(94, 198);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(100, 20);
             this.phoneTextBox.TabIndex = 14;
@@ -355,7 +360,7 @@
             // emailTextBox
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(95, 205);
+            this.emailTextBox.Location = new System.Drawing.Point(94, 224);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(220, 20);
             this.emailTextBox.TabIndex = 16;
@@ -364,7 +369,7 @@
             // 
             // btnSaveExit
             // 
-            this.btnSaveExit.Location = new System.Drawing.Point(95, 232);
+            this.btnSaveExit.Location = new System.Drawing.Point(94, 251);
             this.btnSaveExit.Name = "btnSaveExit";
             this.btnSaveExit.Size = new System.Drawing.Size(75, 38);
             this.btnSaveExit.TabIndex = 17;
@@ -374,7 +379,7 @@
             // 
             // btnExitAbandonChanges
             // 
-            this.btnExitAbandonChanges.Location = new System.Drawing.Point(239, 232);
+            this.btnExitAbandonChanges.Location = new System.Drawing.Point(238, 251);
             this.btnExitAbandonChanges.Name = "btnExitAbandonChanges";
             this.btnExitAbandonChanges.Size = new System.Drawing.Size(75, 38);
             this.btnExitAbandonChanges.TabIndex = 18;
@@ -384,7 +389,7 @@
             // 
             // btnCancelEdit
             // 
-            this.btnCancelEdit.Location = new System.Drawing.Point(177, 232);
+            this.btnCancelEdit.Location = new System.Drawing.Point(176, 251);
             this.btnCancelEdit.Name = "btnCancelEdit";
             this.btnCancelEdit.Size = new System.Drawing.Size(56, 38);
             this.btnCancelEdit.TabIndex = 19;
@@ -392,11 +397,43 @@
             this.btnCancelEdit.UseVisualStyleBackColor = true;
             this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
             // 
+            // fillByNameToolStrip
+            // 
+            this.fillByNameToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nameToolStripLabel,
+            this.nameToolStripTextBox,
+            this.fillByNameToolStripButton});
+            this.fillByNameToolStrip.Location = new System.Drawing.Point(0, 25);
+            this.fillByNameToolStrip.Name = "fillByNameToolStrip";
+            this.fillByNameToolStrip.Size = new System.Drawing.Size(337, 25);
+            this.fillByNameToolStrip.TabIndex = 20;
+            this.fillByNameToolStrip.Text = "fillByNameToolStrip";
+            // 
+            // nameToolStripLabel
+            // 
+            this.nameToolStripLabel.Name = "nameToolStripLabel";
+            this.nameToolStripLabel.Size = new System.Drawing.Size(42, 22);
+            this.nameToolStripLabel.Text = "Name:";
+            // 
+            // nameToolStripTextBox
+            // 
+            this.nameToolStripTextBox.Name = "nameToolStripTextBox";
+            this.nameToolStripTextBox.Size = new System.Drawing.Size(100, 23);
+            // 
+            // fillByNameToolStripButton
+            // 
+            this.fillByNameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByNameToolStripButton.Name = "fillByNameToolStripButton";
+            this.fillByNameToolStripButton.Size = new System.Drawing.Size(97, 22);
+            this.fillByNameToolStripButton.Text = "Search By Name";
+            this.fillByNameToolStripButton.Click += new System.EventHandler(this.fillByNameToolStripButton_Click);
+            // 
             // frmEditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 293);
+            this.ClientSize = new System.Drawing.Size(337, 309);
+            this.Controls.Add(this.fillByNameToolStrip);
             this.Controls.Add(this.btnCancelEdit);
             this.Controls.Add(this.btnExitAbandonChanges);
             this.Controls.Add(this.btnSaveExit);
@@ -423,6 +460,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).EndInit();
             this.customersBindingNavigator.ResumeLayout(false);
             this.customersBindingNavigator.PerformLayout();
+            this.fillByNameToolStrip.ResumeLayout(false);
+            this.fillByNameToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,5 +497,9 @@
         private System.Windows.Forms.Button btnSaveExit;
         private System.Windows.Forms.Button btnExitAbandonChanges;
         private System.Windows.Forms.Button btnCancelEdit;
+        private System.Windows.Forms.ToolStrip fillByNameToolStrip;
+        private System.Windows.Forms.ToolStripLabel nameToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox nameToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillByNameToolStripButton;
     }
 }
