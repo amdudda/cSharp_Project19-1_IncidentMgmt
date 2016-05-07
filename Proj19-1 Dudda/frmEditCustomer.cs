@@ -13,9 +13,30 @@ namespace Proj19_1_Dudda
 {
     public partial class frmEditCustomer : Form
     {
+
         public frmEditCustomer()
         {
             InitializeComponent();
+        }
+
+        private void frmEditCustomer_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // fill the dataset and then move to a new record.
+                this.customersTableAdapter.Fill(this.techSupport_DataDataSet.Customers);
+                customersBindingSource.AddNew();
+            }
+            catch (SqlException sqle)
+            {
+                string msg = "Database error # " + sqle.Number + ":\n" + sqle.Message;
+                string caption = sqle.GetType().ToString();
+                MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
         private void customersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -57,26 +78,6 @@ namespace Proj19_1_Dudda
             }
         }
 
-        private void frmEditCustomer_Load(object sender, EventArgs e)
-        {
-            try 
-            {
-                // fill the dataset and then move to a new record.
-                this.customersTableAdapter.Fill(this.techSupport_DataDataSet.Customers);
-                customersBindingSource.AddNew();
-            }
-            catch (SqlException sqle)
-            {
-                string msg = "Database error # " + sqle.Number + ":\n" + sqle.Message;
-                string caption = sqle.GetType().ToString();
-                MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-        }
-
         public void AddCustomer()
         {
             // loads form 
@@ -115,18 +116,27 @@ namespace Proj19_1_Dudda
         private void nameTextBox_Leave(object sender, EventArgs e)
         {
             // validates required fields to ensure they contain data
+            // TODO: turn this back on when I figure out how to stop it triggering when 
+            // buttons that trigger canceledit events are clicked.
+            /*
             TextBox myBox = (TextBox)sender;
             string myName = myBox.Tag.ToString();
             if (!(Validator.IsPresent(myBox, myName)))
             {
                 myBox.Focus();
             }
+             * */
         }
 
         private void emailTextBox_Leave(object sender, EventArgs e)
         {
             // validate the field if the user tries to tab away.
             Validator.IsEmail(emailTextBox, emailTextBox.Tag.ToString());
+        }
+
+        private void btnCancelEdit_Click(object sender, EventArgs e)
+        {
+            this.customersBindingSource.CancelEdit();
         }
     }
 }

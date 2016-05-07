@@ -63,6 +63,7 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.btnSaveExit = new System.Windows.Forms.Button();
             this.btnExitAbandonChanges = new System.Windows.Forms.Button();
+            this.btnCancelEdit = new System.Windows.Forms.Button();
             customerIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -202,11 +203,13 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Visible = false;
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -379,11 +382,22 @@
             this.btnExitAbandonChanges.UseVisualStyleBackColor = true;
             this.btnExitAbandonChanges.Click += new System.EventHandler(this.btnExitAbandonChanges_Click);
             // 
+            // btnCancelEdit
+            // 
+            this.btnCancelEdit.Location = new System.Drawing.Point(177, 232);
+            this.btnCancelEdit.Name = "btnCancelEdit";
+            this.btnCancelEdit.Size = new System.Drawing.Size(56, 38);
+            this.btnCancelEdit.TabIndex = 19;
+            this.btnCancelEdit.Text = "Undo Edits";
+            this.btnCancelEdit.UseVisualStyleBackColor = true;
+            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
+            // 
             // frmEditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 293);
+            this.Controls.Add(this.btnCancelEdit);
             this.Controls.Add(this.btnExitAbandonChanges);
             this.Controls.Add(this.btnSaveExit);
             this.Controls.Add(customerIDLabel);
@@ -443,5 +457,6 @@
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Button btnSaveExit;
         private System.Windows.Forms.Button btnExitAbandonChanges;
+        private System.Windows.Forms.Button btnCancelEdit;
     }
 }

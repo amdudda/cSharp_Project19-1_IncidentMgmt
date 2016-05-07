@@ -73,5 +73,20 @@ namespace Proj19_1_Dudda
             }
         }
 
+        public static bool IsEmail(Control control, string name)
+        {
+            // email can be empty, but if it has text, it must have an @ sign in it somewhere after the first character
+            if (control.Text != "" && control.Text.IndexOf("@") < 1)
+            {
+                // alert user & return false
+                MessageBox.Show("The " + name + " field does not appear to be a valid email address.  Please enter a valid value.");
+                control.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
