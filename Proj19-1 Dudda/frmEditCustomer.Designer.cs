@@ -224,6 +224,7 @@
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bindingNavigatorMovementItem_MouseDown);
             // 
             // bindingNavigatorMovePreviousItem
             // 
@@ -233,6 +234,7 @@
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bindingNavigatorMovementItem_MouseDown);
             // 
             // bindingNavigatorSeparator
             // 
@@ -261,6 +263,7 @@
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bindingNavigatorMovementItem_MouseDown);
             // 
             // bindingNavigatorMoveLastItem
             // 
@@ -270,6 +273,7 @@
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.bindingNavigatorMoveLastItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bindingNavigatorMovementItem_MouseDown);
             // 
             // bindingNavigatorSeparator2
             // 
@@ -418,7 +422,7 @@
             // nameToolStripTextBox
             // 
             this.nameToolStripTextBox.Name = "nameToolStripTextBox";
-            this.nameToolStripTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nameToolStripTextBox.Size = new System.Drawing.Size(100, 25);
             // 
             // fillByNameToolStripButton
             // 

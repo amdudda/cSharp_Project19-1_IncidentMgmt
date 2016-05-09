@@ -27,6 +27,18 @@ namespace Proj19_1_Dudda
                 this.customersTableAdapter.Fill(this.techSupport_DataDataSet.Customers);
                 customersBindingSource.AddNew();
             }
+            catch (NoNullAllowedException nnae)
+            {
+                // alert the user
+                string msg = "Required field missing.  Please either " +
+                    "fill all required fields and save your changes, or " +
+                    "undo changes to the form, before " +
+                    "navigating away.";
+                string caption = nnae.GetType().ToString();
+                MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // return to form
+                return;
+            }
             catch (SqlException sqle)
             {
                 string msg = "Database error # " + sqle.Number + ":\n" + sqle.Message;
@@ -76,12 +88,32 @@ namespace Proj19_1_Dudda
                     MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                // don't do anything - return the user to the form to continue editing.
+                return;
+            }
         }
 
         public void AddCustomer()
         {
             // loads form 
+            //try
+            //{
             this.ShowDialog();
+            //}
+            //catch (NoNullAllowedException nnae)
+            //{
+            //    // alert the user
+            //    string msg = "Required field missing.  Please either " +
+            //        "fill all required fields and save your changes, or " + 
+            //        "undo changes to the form, before " +
+            //        "navigating away.";
+            //    string caption = nnae.GetType().ToString();
+            //    MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    // return to form
+            //    return;
+            //}
         }
 
         private void btnSaveExit_Click(object sender, EventArgs e)
@@ -164,6 +196,15 @@ namespace Proj19_1_Dudda
                 {
                     System.Windows.Forms.MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void bindingNavigatorMovementItem_MouseDown(object sender, MouseEventArgs e)
+        {
+            // keep the mouseclick event from triggering if we have invalid data.
+            if (!(IsValidData()))
+            {
+                return;
             }
         }
     }
