@@ -67,6 +67,7 @@
             this.findByStateToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.btnAddIncident = new System.Windows.Forms.Button();
             this.btnAddEditCustomer = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             customerIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             addressLabel = new System.Windows.Forms.Label();
@@ -391,7 +392,7 @@
             // 
             // btnAddIncident
             // 
-            this.btnAddIncident.Location = new System.Drawing.Point(420, 183);
+            this.btnAddIncident.Location = new System.Drawing.Point(420, 152);
             this.btnAddIncident.Name = "btnAddIncident";
             this.btnAddIncident.Size = new System.Drawing.Size(135, 23);
             this.btnAddIncident.TabIndex = 18;
@@ -401,19 +402,30 @@
             // 
             // btnAddEditCustomer
             // 
-            this.btnAddEditCustomer.Location = new System.Drawing.Point(420, 157);
+            this.btnAddEditCustomer.Location = new System.Drawing.Point(420, 123);
             this.btnAddEditCustomer.Name = "btnAddEditCustomer";
             this.btnAddEditCustomer.Size = new System.Drawing.Size(135, 23);
             this.btnAddEditCustomer.TabIndex = 19;
-            this.btnAddEditCustomer.Text = "Add New Customer";
+            this.btnAddEditCustomer.Text = "Add New &Customer";
             this.btnAddEditCustomer.UseVisualStyleBackColor = true;
             this.btnAddEditCustomer.Click += new System.EventHandler(this.btnAddEditCustomer_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(420, 181);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "E&xit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frm_CustomerIncidents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 376);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddEditCustomer);
             this.Controls.Add(this.btnAddIncident);
             this.Controls.Add(this.fillByCustomerIDToolStrip);
@@ -480,6 +492,7 @@
         private System.Windows.Forms.ToolStripButton findByStateToolStripButton;
         private System.Windows.Forms.Button btnAddIncident;
         private System.Windows.Forms.Button btnAddEditCustomer;
+        private System.Windows.Forms.Button button1;
     }
 }
 

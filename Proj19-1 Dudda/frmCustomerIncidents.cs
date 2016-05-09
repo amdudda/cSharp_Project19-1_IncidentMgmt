@@ -27,31 +27,35 @@ namespace Proj19_1_Dudda
 
         private void fillByCustomerIDToolStripButton_Click(object sender, EventArgs e)
         {
-            try
+            // only allow if there is valid input in the customer id field
+            Control mySearchBox = txtCustomerIdSearch.Control;
+            if (Validator.IsPositiveInteger(mySearchBox, "Customer ID"))
             {
-                int custId = Convert.ToInt32(txtCustomerIdSearch.Text);
-                this.customersTableAdapter.FillByCustomerID(this.techSupport_DataDataSet.Customers,
-                    custId); 
-                this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
-                if (customersBindingSource.Count == 0)
+                try
                 {
-                    MessageBox.Show("No customers with that ID found.  Please try another number.",
-                        "ID not found");
+                    int custId = Convert.ToInt32(txtCustomerIdSearch.Text);
+                    this.customersTableAdapter.FillByCustomerID(this.techSupport_DataDataSet.Customers,
+                        custId);
+                    this.incidentsTableAdapter.Fill(this.techSupport_DataDataSet.Incidents);
+                    if (customersBindingSource.Count == 0)
+                    {
+                        MessageBox.Show("No customers with that ID found.  Please try another number.",
+                            "ID not found");
+                        txtCustomerIdSearch.Focus();
+                    }
                     txtCustomerIdSearch.Focus();
                 }
-                txtCustomerIdSearch.Focus();
+                catch (SqlException sqle)
+                {
+                    string msg = "Database error # " + sqle.Number + ":\n" + sqle.Message;
+                    string caption = sqle.GetType().ToString();
+                    MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
             }
-            catch (SqlException sqle)
-            {
-                string msg = "Database error # " + sqle.Number + ":\n" + sqle.Message;
-                string caption = sqle.GetType().ToString();
-                MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
         }
 
         private void findByStateToolStripButton_Click(object sender, EventArgs e)
@@ -147,6 +151,12 @@ namespace Proj19_1_Dudda
         {
             frmEditCustomer addNewCust = new frmEditCustomer();
             addNewCust.AddCustomer();
+            fillByCustomerIDToolStripButton_Click(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

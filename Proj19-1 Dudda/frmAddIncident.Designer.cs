@@ -95,6 +95,7 @@
             this.cboProductCode.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.incidentsBindingSource, "ProductCode", true));
             this.cboProductCode.DataSource = this.productsBindingSource;
             this.cboProductCode.DisplayMember = "Name";
+            this.cboProductCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProductCode.FormattingEnabled = true;
             this.cboProductCode.Location = new System.Drawing.Point(89, 92);
             this.cboProductCode.Name = "cboProductCode";
