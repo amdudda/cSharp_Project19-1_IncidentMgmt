@@ -98,22 +98,7 @@ namespace Proj19_1_Dudda
         public void AddCustomer()
         {
             // loads form 
-            //try
-            //{
             this.ShowDialog();
-            //}
-            //catch (NoNullAllowedException nnae)
-            //{
-            //    // alert the user
-            //    string msg = "Required field missing.  Please either " +
-            //        "fill all required fields and save your changes, or " + 
-            //        "undo changes to the form, before " +
-            //        "navigating away.";
-            //    string caption = nnae.GetType().ToString();
-            //    MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    // return to form
-            //    return;
-            //}
         }
 
         private void btnSaveExit_Click(object sender, EventArgs e)
